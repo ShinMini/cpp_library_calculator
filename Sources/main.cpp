@@ -6,6 +6,7 @@
 #include <random>   // 랜덤값을 받아오기 위한 라이브러리 
 #include <cmath>    // 값 가공할건데, 주로 실수값을 정수값으로 변환해주기 위해 많이 사용할 예정임. 
 #include <vector>   // 배열 쓸거임. 근데 정적배열말고 동적배열써서 사용자 값에 따라 크기 다르게 할당할거임, 물론 엄청 큰값을 받을게 아니라 정적 배열로 선언해도 되지만, 혹여나 규모가 큰 프로그램에 사용될 경우, 메모리 자원을 아낄 수 있기 때문에 inclue array 대신 vector를 선택함. ㅇㅇ 
+#include <windows.h>    // windows 전용으로 만듬 맥, 리눅스 미안 >< setting icons :)
 
 using namespace std;
 
@@ -50,11 +51,11 @@ int Select_Menu()
     GotoXY(x, y + 2);    
     printf("==================================");
     GotoXY(x, y + 4);
-    printf("   1. 도서관 자리 체크");
+    printf("   1.  Check to library seats");
     GotoXY(x, y + 6);
-    printf("   2. 랜덤으로 테스트하기");
+    printf("   2.  Test program with random vaules");
     GotoXY(x, y + 8);
-    printf("   3. 프로그램 종료");
+    printf("   3.  Quit the program");
 
     GotoXY(x, y + 10);
 
@@ -74,16 +75,17 @@ void Start_Program_Menu(bool wrong_num)
     GotoXY(x, y);
     printf("================================");
     GotoXY(x, y + 1);
-    printf("=========* 좌석 설정 *==========");
+    printf("==== setting library seats =====");
     GotoXY(x, y + 2);
     printf("================================");
     GotoXY(x, y+5);
-    printf("    1. 새, 좌석 만들기 ");
+    printf("    1. make new seats ");   // 새로운 좌석 만들기. 
     GotoXY(x, y+7);
-    printf("    2. 저장된 좌석  불러오기");
-    if(wrong_num){
+    printf("    2. call made seats settings ");     // 이미 만든 파일 불러오기
+
+    if(wrong_num){  // 번호 잘못 선택했을 때 출력하고 다시 재귀호출할거임 ㅇㅇ
     GotoXY(x, y+9);
-    printf("please select another num");
+    printf("    (please select another num within 1~2)");   // 번호 다시 입력하세요~~
     }
 
     cin >> Option;
@@ -107,20 +109,20 @@ void Start_Program_Menu(bool wrong_num)
 void Make_new_seat(int x, int y){
     system("cls");
     GotoXY(x, y+3);
-    printf("새 좌석 생성하는 프로그램은 받는 값은 뭔값으로 할거임? ");
+    printf(" init the new seat setting !  ");   // 새로운 자리 생성하는 함수는 너가 알아서 짜시고 ㅇㅇ
 
     GotoXY(x, y+5);
-    printf("응애 이건 너가 만들어 화이팅");
+    printf(" cheer up :) sibal z ");
 
     printf("\n\n\n\n\n\n\n\n\n");
 }
 void Call_made_seat(int x, int y){
     system("cls");
     GotoXY(x, y+3);
-    printf("기존 좌석 불러오기 이거는 파일 생성 write 함수 쓰면 됨 ㅅㄱ");
+    printf(" call back the made setting files  ");  // 기존에 만들어둔 파일 저장하는건 write, 불러오는 것도 file write or read 함수 검색해서 하면 됨 ㅇㅇ
 
     GotoXY(x, y+5);
-    printf(" ㅋㅋ 졸작 화이팅 >< ");
+    printf(" zzzzzzzzzz well done bro ㅋ ");    // 어 화이팅 하고 ㅋ
     GotoXY(x+5, y+8);
     printf(" ^오^ b ");
 
@@ -141,25 +143,25 @@ void Random_Test_Menu(bool print_error)   // 에러 표시 메세지 출력.
     int y = 2; 
     if(print_error){    // 입력에 오류가 생긴 경우,  
         GotoXY(x, y+2);
-        printf("최대값혹은  최소값을 다시 입력해 주세요 :)");
+        printf(" plz reinput the MAX or MIN values :)");
     }
     GotoXY(x, y);
     printf("====================================");
     GotoXY(x, y + 1);
-    printf("========== 랜덤 좌석 설정 ==========");
+    printf("======= setting random seats =======");
     GotoXY(x, y + 2);
     printf("====================================");
 
     GotoXY(x, y+4);
     printf("        [MAX = 150]");
     GotoXY(x, y+5);
-    printf("    1. 최대 좌석 수 설정 : ");
+    printf("    1. input MAX values: ");
     cin >> Max_Seat;
 
     GotoXY(x, y+7);
     printf("        [MIN = 1]");
     GotoXY(x, y +8); 
-    printf("    2. 최소 좌석 수      : ");
+    printf("    2. input MIN values: ");
     cin >> Min_Seat;
 
     if(Max_Seat<Min_Seat || Max_Seat>150 || Min_Seat<1){
@@ -195,13 +197,13 @@ void Random_Test_Menu(bool print_error)   // 에러 표시 메세지 출력.
 
         // display 상단 가운데 표기
         GotoXY(x+15, y);
-        printf("[랜덤 자리 %d개 생성 완료]", random_value);
+        printf("[ made suceesful!! / total seats: %d ]", random_value);
 
         // display 왼쪽 상단에 표기
         GotoXY(x-16, y+2);
-        cout << "사용 가능 좌석   : (" << random_value<<"/" << random_value - cant_Seat_total<<")개"; 
+        cout << " usable seats: (" << random_value<<"/" << random_value - cant_Seat_total<<")개"; 
         GotoXY(x-16, y+3);
-        cout << "사용 가능 좌석   : (" << random_value<<"/" << cant_Seat_total<<")개"; 
+        cout << " unusalbe seats: (" << random_value<<"/" << cant_Seat_total<<")개"; 
 
         // display 오른쪽 상단에 표기
         ran_row = round(sqrt(random_value));
@@ -237,9 +239,9 @@ void Random_Test_Menu(bool print_error)   // 에러 표시 메세지 출력.
 
     // display 중앙 하단에 출력. 
     GotoXY(x+5, y+22);
-    printf("사용 가능 : [n] / 사용 불가능 [ ]");
+    printf("usable : [n] / unusable : [ ]");
     GotoXY(x+45, y+23);
-    printf("아무키 입력시 메뉴로 이동");
+    printf("input any key go to menu");
    
 
     printf("\n\n\n\n\n\n\n\n\n");
