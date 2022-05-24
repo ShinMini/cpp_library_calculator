@@ -1,5 +1,5 @@
 ## 도서관 좌석 관리 시스템
-![Alt text](imgfiles/main.png?raw=true "main_menu")
+![main menu](imgfiles/main.png?raw=true "main_menu")
 ### 프로그램 기능 
 1. 도서관 좌석 현황 체크 가능. 
 2. 도서관 좌석에 사람이 앉아있는지 체크가능 => 30분 간격 좌석 테스트(압력 감지) 
