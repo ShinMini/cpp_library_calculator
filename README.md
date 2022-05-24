@@ -33,9 +33,11 @@
 
 	* 정상적으로 값을 입력했을 경우 
 
-![wrong](./imgfile/M_2/select2-success.png?raw=true "second_success_case")
+![success](./imgfile/M_2/select2-success.png?raw=true "second_success_case")
 
 	3. 프로그램 종료
 		- 프로그램 종료 기능. 
+		- 정상적으로 프로그램 종료. 
 	
+![success](./imgfile/M_3/select3.png?raw=true "second_success_case")
 
