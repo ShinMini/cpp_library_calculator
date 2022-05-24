@@ -16,11 +16,25 @@
 	1. 좌석 생성(사용자 지정)
 		1. 새로운 좌석 배열 생성
 		2. 기존 저장해둔 좌석 배열 가져오기
+
+![Alt text](./imgfile/M_1/select1.png?raw=true "first_menu")
+
 	2. 프로그램 테스트
 		1. 랜덤 값을 지정해 테스트 실행. 
 		- 최대 및 최소 좌석 수 입력
 		- 자동으로 사용가능 및 불가능 좌석 생성, 
 		- 사용 가능 및 불가능 좌석 user interface에 표기
+
+![select 2](./imgfile/M_2/select2.png?raw=true "second_menu")
+
+	* 잘못 된 값을 입력했을 경우 
+
+![wrong](./imgfile/M_2/select2-wrong1.png?raw=true "second_wrong_case")
+
+	* 정상적으로 값을 입력했을 경우 
+
+![wrong](./imgfile/M_2/select2-success.png?raw=true "second_success_case")
+
 	3. 프로그램 종료
 		- 프로그램 종료 기능. 
 	
